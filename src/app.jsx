@@ -1,9 +1,9 @@
 import React from 'react';
 import './app.css';
-import FridgeItem from './components/fridgeItem';
+import FridgeItems from './components/fridgeItems';
 
 function App() {
-  return <FridgeItem/>
+  return <FridgeItems/>
 }
 
 export default App;
