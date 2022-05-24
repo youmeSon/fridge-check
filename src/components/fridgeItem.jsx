@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 
 class FridgeItem extends Component {
     handleIncrement = () => {
-        this.setState({count: this.state.count + 1});
+       this.props.onIncrement(this.props.item);
     }
 
     handleDecrement = () => {
-        const count = this.state.count - 1;
-        this.setState({count: count < 0 ? 0 : count});
+        this.props.onDecrement(this.props.item);
+    }
+
+    handleDelete = () => {
+        this.props.onDelete(this.props.item);
     }
 
    
@@ -23,7 +26,7 @@ class FridgeItem extends Component {
             <button className='item-button item-decrease' onClick={this.handleDecrement}>
                 <i className="fas fa-minus-square"></i>
             </button>
-            <button className='item-button item-delete'>
+            <button className='item-button item-delete' onClick={this.handleDelete}>
                 <i className="fas fa-trash"></i>
             </button>
         </li>
