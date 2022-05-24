@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 
 class FridgeItem extends Component {
-    state = {
-        count: 0,
-    }
-
     handleIncrement = () => {
         this.setState({count: this.state.count + 1});
     }
@@ -16,10 +12,11 @@ class FridgeItem extends Component {
 
    
     render() {
+        const {name, count} = this.props.item;
         return (
         <li className='item'>
-            <span className="item-name">beer</span>
-            <span className="item-count">{this.state.count}</span>
+            <span className="item-name">{name}</span>
+            <span className="item-count">{count}</span>
             <button className='item-button item-increase' onClick={this.handleIncrement}>
                 <i className="fas fa-plus-square"></i>
             </button>
