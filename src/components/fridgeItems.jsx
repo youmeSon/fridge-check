@@ -14,19 +14,20 @@ class FridgeItems extends Component {
         const fridgeItems = [...this.state.fridgeItems];
         const index = fridgeItems.indexOf(item);
         fridgeItems[index].count++;
-        this.setState({fridgeItems});
+        this.setState({fridgeItems})
     }
 
     handleDecrement = (item) => {
         const fridgeItems = [...this.state.fridgeItems];
         const index = fridgeItems.indexOf(item);
-        let count = fridgeItems[index].count - 1;
+        const count = fridgeItems[index].count - 1;
         fridgeItems[index].count = count < 0 ? 0 : count;
-        this.setState({fridgeItems});
+        this.setState({fridgeItems})
     }
 
     handleDelete = (item) => {
-       
+        const fridgeItems = this.state.fridgeItems.filter(thing => thing.id !== item.id);
+        this.setState({fridgeItems})
     }
     render() {
         return (
