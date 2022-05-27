@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import './app.css';
 import FridgeItems from './components/fridgeItems';
+import Navbar from './components/navbar';
 
 class App extends Component {
   state = {
@@ -34,7 +35,10 @@ handleDelete = (item) => {
 
   render() {
     return(
+      <>
+      <Navbar totalCount={this.state.fridgeItems.filter(item => item.count > 0).length}/>
       <FridgeItems fridgeItems={this.state.fridgeItems} onIncrement={this.handleIncrement} onDecrement={this.handleDecrement} onDelete={this.handleDelete}/>
+      </>
     );
   }
   
