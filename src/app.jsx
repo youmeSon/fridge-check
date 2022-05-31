@@ -33,11 +33,22 @@ handleDelete = (item) => {
     this.setState({fridgeItems})
 }
 
+handleAdd = (name) => {
+    const fridgeItems = [...this.state.fridgeItems, {id: Date.now(), name, count: 0}];
+    this.setState({ fridgeItems });
+}
+
   render() {
     return(
       <>
       <Navbar totalCount={this.state.fridgeItems.filter(item => item.count > 0).length}/>
-      <FridgeItems fridgeItems={this.state.fridgeItems} onIncrement={this.handleIncrement} onDecrement={this.handleDecrement} onDelete={this.handleDelete}/>
+      <FridgeItems 
+      fridgeItems={this.state.fridgeItems} 
+      onIncrement={this.handleIncrement} 
+      onDecrement={this.handleDecrement} 
+      onDelete={this.handleDelete}
+      onAdd={this.handleAdd}
+      />
       </>
     );
   }
